@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
-import "./globals.css";
-
+import Header  from "@/components/Header/index";
+    
 const raleway = Raleway({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -21,6 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${raleway.variable} antialiased`}>
+        <Header/>
         {children}
       </body>
     </html>
