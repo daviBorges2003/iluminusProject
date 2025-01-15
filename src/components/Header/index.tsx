@@ -1,28 +1,44 @@
-import { Disclosure ,Menu,MenuButton } from "@headlessui/react";
-import Image from "next/image";
-import {Bars3Icon } from "@heroicons/react/24/solid"; 
-import {Cog6ToothIcon , ArrowRightStartOnRectangleIcon} from "@heroicons/react/24/outline";
+"use client";
 
-function Header() {
+import { Menu, MenuButton } from "@headlessui/react";
+import {
+  Cog6ToothIcon,
+  ArrowRightStartOnRectangleIcon,
+} from "@heroicons/react/24/outline";
+import { useEffect, useState } from "react";
+
+function Header({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <Menu as="nav" className="bg-white lg:p-10 shadow-lg h-24 flex justify-between items-center">
-        <MenuButton>
-          <Bars3Icon className="size-8"/> 
-        </MenuButton>
-        <Menu as="div" className="w-1/4 flex justify-between items-center">
-          <div className="flex">
-            <Image className="rounded-full" src="/ImageText.jpg" alt="Image" width={40} height={40}/>
-            <h1>NickName</h1>
+    <Menu
+      as="nav"
+      className="bg-white w-screen h-24 flex lg:p-10 md:p-5 sm:p-3 shadow-lg  justify-between items-center"
+    >
+      {children}
+      <div className="w-fit-content gap-10 flex justify-between items-center">
+        <div className="flex gap-3">
+          <img
+            src="/ImageText.jpg"
+            alt="User Image"
+            className="size-12 rounded-full"
+          />
+          <div>
+            <p className="font-bold">Davi Borges</p>
+            <p className="font-thin">Adm</p>
           </div>
-          <MenuButton>
-            <Cog6ToothIcon className="size-6"/>
-          </MenuButton>
-          <MenuButton>
-            <ArrowRightStartOnRectangleIcon className="size-6"/>
-          </MenuButton>
-        </Menu>
+        </div>
+        <MenuButton>
+          <Cog6ToothIcon className="size-8" />
+        </MenuButton>
+        <MenuButton>
+          <ArrowRightStartOnRectangleIcon className="size-8" />
+        </MenuButton>
+      </div>
     </Menu>
-  )
-} 
+  );
+}
 
-export default Header
+export default Header;

@@ -5,7 +5,6 @@ import "./globals.css";
 const raleway = Raleway({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-  weight: "300",
 });
 
 export const metadata: Metadata = {
@@ -20,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${raleway.variable} antialiased`}>
+      <body className={`${raleway.variable} antialiased w-screen h-screen`}>
         {children}
       </body>
     </html>
